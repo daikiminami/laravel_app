@@ -62,7 +62,7 @@ class TodoController extends Controller
         // dd($this->todo->fill($input));
         $this->todo->fill($input)->save();  //Formタグで送信したPOST情報を取得可能。一致している場合fill関数でattributeにそのキー値が入る。
         // dd(redirect(),redirect()->to('todo'));
-        return redirect()->to('todo');
+        return redirect()->route('todo.index');
     }
 
     /**
@@ -103,7 +103,7 @@ class TodoController extends Controller
         $input = $request->all();
         // dd($this->todo->find($id)->fill($input));
         $this->todo->find($id)->fill($input)->save();
-        return redirect()->to('todo');
+        return redirect()->route('todo.index');
     }
 
     /**
@@ -118,6 +118,6 @@ class TodoController extends Controller
         // dd($this->todo);
         $this->todo->find($id)->delete();
         // dd($this->todo->find($id)->delete());
-        return redirect()->to('todo');
+        return redirect()->route('todo.index');
     }
 }
