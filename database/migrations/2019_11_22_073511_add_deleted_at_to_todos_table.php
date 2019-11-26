@@ -26,7 +26,7 @@ class AddDeletedAtToTodosTable extends Migration
     public function down()
     {
         Schema::table('todos', function (Blueprint $table) {
-            //
+            $this->dropColumn('deleted_at');
         });
     }
 }
